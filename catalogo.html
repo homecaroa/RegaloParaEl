@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Packs de regalo para hombres · Acierto</title>
+  <meta name="description" content="Todos los packs de regalo para hombres: filtra por perfil u ocasión y compara precios de un vistazo.">
+  <meta name="robots" content="noindex, nofollow"><!-- QUITAR al lanzar la tienda -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="src/css/base.css">
+  <link rel="stylesheet" href="src/css/components.css">
+  <link rel="stylesheet" href="src/css/paginas.css">
+  <script type="module" src="src/js/main.js"></script>
+</head>
+<body data-page="catalogo">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera" id="site-header"></header>
+  <main id="contenido" class="pagina">
+    <div class="wrap">
+      <nav aria-label="Migas de pan"><ol class="migas"><li><a href="index.html">Inicio</a></li><li aria-current="page">Packs</li></ol></nav>
+      <h1>Packs de regalo para hombres</h1>
+      <p class="lead">Elige por perfil u ocasión. Cada pack incluye 3 o 4 artículos.</p>
+      <form class="filtros" id="filtros" aria-label="Filtros del catálogo">
+        <label>Perfil <select name="perfil"></select></label>
+        <label>Ocasión <select name="ocasion"></select></label>
+        <label>Ordenar por <select name="orden"></select></label>
+      </form>
+      <p class="resultado" id="resultado" aria-live="polite"></p>
+      <div class="rejilla" id="catalogo-lista"><p class="vacio">Cargando packs…</p></div>
+    </div>
+  </main>
+  <footer class="pie" id="site-footer"></footer>
+  <noscript><p class="wrap aviso">Esta web necesita JavaScript para funcionar.</p></noscript>
+</body>
+</html>
