@@ -1,6 +1,6 @@
 # ESTADO DEL PROYECTO · Acierto (marca provisional)
 
-Última actualización: Lote 04+05 · 8 oct 2026
+Última actualización: Lote 04+05 + paleta navy/loden/burdeos · 8 oct 2026
 
 ## Objetivo
 Construir la web de una tienda de packs de regalo para hombres (3–4 artículos por caja), España, español de España. Foco actual: solo la página (no ventas, marketing, proveedores ni precios). El usuario aportará la información de cada lote de productos poco a poco. Precio máximo por pack: 49,90 €.
@@ -11,7 +11,7 @@ Construir la web de una tienda de packs de regalo para hombres (3–4 artículos
 - Cada página: `<body data-page="...">` + `src/js/main.js` (cabecera, pie, validación) + módulo `src/js/<pagina>.js` con `iniciar()`, registrado en `PAGINAS` de main.js.
 - Carrito en localStorage (clave `acierto-carrito`, líneas {id, cantidad}, máx. 10 por pack); precios siempre leídos de products.js; importes calculados en céntimos.
 - Pago real NO integrado: botón "Finalizar compra" desactivado y señalizado. Pagos sin autorizar.
-- Paleta: tinta #17262B, papel #F6F1E7, acción #8F5524, acento #B5703A (decorativo), salvia #5E7A6B. Fuentes del sistema.
+- Paleta (base clara cálida): papel #F7F3EA, texto #17233B; azul navy #1E3153 (estructura, pie), verde loden #56643A (apoyo, chips), rojo burdeos #7A1F2E (acciones y detalles). Cada color tiene variante clara (-claro) para fondos. Variables en `src/css/base.css`. Fuentes del sistema.
 
 ## Árbol actual
 README.md · .gitignore · index.html · catalogo.html · pack.html · carrito.html · assets/favicon.svg · docs/ESTADO.md
@@ -27,7 +27,7 @@ Previstos: info.html, robots.txt, sitemap.xml, src/js/info.js (o seo.js), src/da
 | src/css/base.css, components.css, src/js/ui.js, validar.js, home.js, index.html | entregado | L02-L03 |
 | catalogo.html, pack.html, carrito.html, src/css/paginas.css, src/js/catalog.js, product.js, carrito.js | entregado | L04-L05 |
 | src/js/cart.js, layout.js, main.js | entregado (sustituyen versiones previas) | L04-L05 |
-| docs/ESTADO.md | entregado | L04-L05 |
+| src/css/base.css, components.css, paginas.css, assets/favicon.svg (nueva paleta), docs/ESTADO.md | entregado | Paleta v2 |
 Ninguno marcado como subido ni verificado hasta que el usuario lo confirme.
 
 ## Funcionalidades implementadas
@@ -46,7 +46,7 @@ Los enlaces a info.html (pie y menú "Preguntas") dan 404 hasta el Lote 06.
 
 ## Pruebas realizadas
 - Node + jsdom: catálogo (filtros, orden, URL, vacío), ficha (contenido, añadir al carrito, contador, pack borrador → no encontrado), carrito (cantidades, totales, quitar, no disponibles, pago desactivado), 0 errores de consola; sintaxis de todos los módulos.
-- No probado en navegador real: diseño visual, responsive y GitHub Pages.
+- Chromium (Playwright) en local: inicio (escritorio y móvil), catálogo, ficha y carrito renderizan sin errores de consola con la nueva paleta. No probado en GitHub Pages.
 
 ## Próxima tarea exacta
 Lote 06: info.html + src/js/info.js + src/data/info-pages.js (contenidos con datos pendientes marcados), robots.txt, sitemap.xml. Antes, el usuario confirma que catálogo, ficha y carrito funcionan y aporta (si quiere) los datos del primer lote de productos.
