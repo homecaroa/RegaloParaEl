@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Generador de sitemap.xml</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../src/css/base.css">
+  <link rel="stylesheet" href="../src/css/components.css">
+  <link rel="stylesheet" href="../src/css/paginas.css">
+</head>
+<body>
+  <main class="pagina">
+    <div class="wrap">
+      <h1>Generador de sitemap.xml</h1>
+      <p>Herramienta interna. Copia el resultado y guárdalo como <code>sitemap.xml</code> en la raíz del repositorio. Hazlo de nuevo cuando añadas o quites packs.</p>
+      <p id="estado" class="aviso" role="status"></p>
+      <textarea id="salida" rows="22" readonly style="width:100%;font-family:monospace"></textarea>
+      <p><button class="btn btn-primario" type="button" id="copiar">Copiar</button></p>
+    </div>
+  </main>
+  <script type="module">
+    import { SITE } from '../src/data/site.config.js';
+    import { PRODUCTS } from '../src/data/products.js';
+    import { INFO } from '../src/data/info-pages.js';
+
+    const estado = document.getElementById('estado');
+    const salida = document.getElementById('salida');
+    const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+
+    if (!SITE.dominio) {
+      estado.textContent = 'Falta el dominio: define "dominio" en src/data/site.config.js (por ejemplo "https://midominio.es") y recarga esta página.';
+    } else {
+      const base = SITE.dominio.replace(/\/$/, '');
+      const rutas = ['', 'catalogo.html',
+        ...Object.keys(INFO).map((k) => `info.html?p=${k}`),
+        ...PRODUCTS.filter((p) => p.estado !== 'borrador').map((p) => `pack.html?id=${encodeURIComponent(p.slug)}`)];
+      salida.value = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+        rutas.map((r) => `  <url><loc>${esc(`${base}/${r}`)}</loc></url>`).join('\n') + '\n</urlset>\n';
+      estado.textContent = `${rutas.length} URL generadas. Recuerda quitar "noindex" de las páginas al lanzar.`;
+    }
+    document.getElementById('copiar').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(salida.value); estado.textContent = 'Copiado.'; }
+      catch { salida.select(); estado.textContent = 'Selecciona el texto y copia con Ctrl+C.'; }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /herramientas/
+
+# AL LANZAR (con dominio propio): añadir la línea siguiente con tu dominio real
+# Sitemap: https://TU-DOMINIO/sitemap.xml
