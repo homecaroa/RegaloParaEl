@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Encuentra tu regalo para hombre · Acierto</title>
+  <meta name="description" content="Responde tres preguntas (tipo de hombre, ocasión y presupuesto) y te mostramos solo los packs de regalo que encajan.">
+  <meta name="robots" content="noindex, nofollow"><!-- QUITAR al lanzar la tienda -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="src/css/base.css">
+  <link rel="stylesheet" href="src/css/components.css">
+  <link rel="stylesheet" href="src/css/paginas.css">
+  <script type="module" src="src/js/main.js"></script>
+</head>
+<body data-page="encuentra">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera" id="site-header"></header>
+  <main id="contenido" class="pagina">
+    <div class="wrap">
+      <nav aria-label="Migas de pan"><ol class="migas"><li><a href="index.html">Inicio</a></li><li aria-current="page">Encuentra tu regalo</li></ol></nav>
+      <h1>Encuentra tu regalo</h1>
+      <p class="lead">Responde tres preguntas y te mostramos los packs que encajan. Si no tenemos uno adecuado, te lo diremos.</p>
+      <form class="filtros" id="encuentra-form" aria-label="Encuentra tu regalo">
+        <label>1. ¿Qué tipo de hombre es? <select name="perfil"></select></label>
+        <label>2. ¿Para qué ocasión es? <select name="ocasion"></select></label>
+        <label>3. ¿Cuál es tu presupuesto? <select name="presupuesto"></select></label>
+        <div class="filtros-accion"><button class="btn btn-primario" type="submit">Ver recomendaciones</button></div>
+      </form>
+      <section id="encuentra-resultado" tabindex="-1" aria-live="polite"></section>
+    </div>
+  </main>
+  <footer class="pie" id="site-footer"></footer>
+  <noscript><p class="wrap aviso">Esta web necesita JavaScript para funcionar.</p></noscript>
+</body>
+</html>
